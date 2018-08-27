@@ -1,0 +1,1744 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <style type="text/css">
+        #border{
+            background-color: #E8E8E8;
+            border: solid #D5D5D5 1px;
+            border-radius: 10px;
+            padding-left: 150px;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            width: 60%;
+        }
+        #clear{
+            margin-left: 5px;
+            border: solid #CCCCCC 1px;
+        }
+        #location{
+
+        }
+        #choice{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .errorMessage{
+            color: red;
+            display: none;
+        }
+        .innerContent{
+            margin-top: 18px;
+        }
+        .innerIcon{
+            border:#AAAAAA solid 1px;
+            border-radius:5px;
+            width:40px;
+            height:40px;
+            margin-top: 11px;
+            padding-top: 7px;
+            background-color: white;
+        }
+        .innerIcon1:hover{
+            background-color: #CDCDCD;
+        }
+        .innerIcon1{
+            border:#AAAAAA solid 1px;
+            border-radius:5px;
+            width:40px;
+            height:40px;
+            margin-top: 11px;
+            padding-top: 7px;
+            background-color: white;
+        }
+        .innerIcon:hover{
+            background-color: #CDCDCD;
+        }
+        #showButton{
+            text-align: center;
+            margin-top: 30px;
+        }
+        #previous{
+            border-radius: 5px;
+            display: none;
+            border-color: #CDCDCD;
+            margin: auto;
+        }
+        #next{
+            border-radius: 5px;
+            display:none;
+            border-color: #CDCDCD;
+            margin: auto;
+            width: 90px;
+            text-align: center;
+            margin-left: 20px;
+        }
+        #html2{
+            display: none;
+        }
+        #html3{
+            display: none;
+        }
+        #details{
+            float: right;
+            border-color: #CDCDCD;
+            border-radius: 5px;
+            display: none;
+        }
+        #details:hover{
+            background-color: #CDCDCD;
+        }
+        #details1{
+            float: right;
+            border-color: #CDCDCD;
+            border-radius: 5px;
+        }
+        #details1:hover{
+            background-color: #CDCDCD;
+        }
+        .oneRow:hover{
+            background-color: #CDCDCD;
+        }
+        #returnList{
+            float: left;
+            border-color: #CDCDCD;
+        }
+        #returnList:hover{
+            background-color: #CDCDCD;
+        }
+        #star{
+            float: right;
+            border-color: #CDCDCD;
+        }
+        #star:hover{
+            background-color: #CDCDCD;
+        }
+        #twitter{
+            float: right;
+            border-color: #CDCDCD;
+            margin-right: 10px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-left: 8.5px;
+            padding-right: 8.5px;
+        }
+        #innerTwitter{
+            font-size: 25px;
+        }
+        #leftArrow{
+            font-size: 15px;
+            margin-right: 5px;
+        
+        }
+        #middleList{
+            margin-top: 10px;
+            border-bottom: solid #CDCDCD 1px;
+            height: 38px;
+        }
+        
+        #reviewsButton{
+            float: right;
+            border-bottom: solid #CDCDCD 1px;
+            color: #277CF6;
+            border-radius: 0px;
+            margin: 0px;
+            background-color: white;
+        }
+        #mapButton{
+            float: right;
+            border-bottom: solid #CDCDCD 1px;
+            color: #277CF6;
+            border-radius: 0px;
+            margin: 0px;
+            background-color: white;
+        }
+        #photosButton{
+            float: right;
+            border-bottom: solid #CDCDCD 1px;
+            color: #277CF6;
+            border-radius: 0px;
+            margin: 0px;
+            background-color: white;
+        }
+        #infoButton{
+            float: right;
+            border-left: solid #CDCDCD 1px;
+            border-right: solid #CDCDCD 1px;
+            border-top: solid #CDCDCD 1px;
+            color: #277CF6;
+            border-radius: 0px;
+            margin: 0px;
+            background-color: white;
+        }
+        #topButton{
+
+        }
+        .clearFloat{
+            clear: both;
+        }
+        #reviewsContent{
+            height: 350px;
+            display: none;
+        }
+        #mapContent{
+            height: 500px;
+            display: none;
+        }
+        #spaceForMap{
+            height: 350px;
+        }
+        #spaceForPeg{
+            height: 350px;
+            display: none;
+        }
+        #spaceForInfo{
+            
+        }
+        #photosContent{
+            height: 350px;
+            display: none;
+        }
+        #infoContent{
+            height: 350px;
+            display: block;
+        }
+        #bottomContent{
+            height: 350px;
+        }
+        #backStar{
+            display: inline;
+            height: 20px;
+            width: 90px;
+            border: solid grey 0px;
+        }
+        #strip{
+            position: relative;
+            border: solid grey 0px;
+            height: 20px;
+            width: 90px;
+            left: 27px;
+            top: -22px;
+            background-color: white;
+        }
+        #starRate{
+            display: inline;
+            height: 20px;
+            width: 90px;
+        }
+        #pegman{
+            width: 40px;
+            height: 40px;
+            border: solid #CDCDCD 1px;
+            border-radius: 5px;
+            background-image: url("http://cs-server.usc.edu:45678/hw/hw8/images/Pegman.png");
+            background-size: cover;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #spaceForOrigin{
+            border: solid grey 1px;
+            background-color: #CDCDCD;
+            margin-top: 10px;
+        }
+        #spaceForDes{
+            border: solid grey 1px;
+            background-color: #CDCDCD;
+        }
+        .listForTransit:hover{
+            background-color: #CDCDCD;
+        }
+        #animateBar{
+            margin-top: 150px;
+        }
+        #firstPart{
+            display: none;
+        }
+        #secondPart{
+            display: none;
+        }
+        #thirdPartWhole{
+            display: none;
+        }
+        #spaceForthePlaceName{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 40px;
+        }
+
+      </style>
+      <title>Awesome Map App</title>
+      
+  </head>
+  <body>
+    <div class="container" id="border">
+    <form>
+  <div class="form-row">
+    <div class="form-group col-md-3"></div>
+      <div class="form-group col-md-7"><strong style="font-size: 21px">Travel and Entertainment Search</strong></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">  
+        <label for="inputKeyword">keyword<span class="text-danger">*</span></label>
+    </div>
+    <div class="form-group col-md-7">
+        <input type="text" class="form-control" id="inputKeyword">
+        <div id="error1" class="errorMessage">Please enter a keyword.</div>
+    </div>
+        </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputState">Category</label>
+    </div>
+    <div class="form-group col-md-5">
+      <select id="inputState" class="form-control">
+          <option selected>Default</option>
+          <option>Airport</option>
+          <option>Amusement Park</option>
+          <option>Aquarium</option>
+          <option>Art Gallery</option>
+          <option>Bakery</option>
+          <option>Bar</option>
+          <option>Beauty Salon</option>
+          <option>Bowling Alley</option>
+          <option>Bus Station</option>
+          <option>Cafe</option>
+          <option>Campground</option>
+          <option>Car Rental</option>
+          <option>Casino</option>
+          <option>Lodging</option>
+          <option>Movie Theater</option>
+          <option>Museum</option>
+          <option>Night Club</option>
+          <option>Park</option>
+          <option>Parking</option>
+          <option>Restaurant</option>
+          <option>Shopping Mall</option>
+          <option>Stadium</option>
+          <option>Subway Station</option>
+          <option>Taxi Stand</option>
+          <option>Train Station</option>
+          <option>Transit Station</option>
+          <option>Travel Agency</option>
+          <option>Zoo</option>
+      </select>
+    </div>
+  </div>
+        <div class="form-row">
+    <div class="form-group col-md-3">  
+        <label for="inputAddress">Distance (miles)</label>
+    </div>
+    <div class="form-group col-md-5">
+        <input type="text" class="form-control" id="inputAddress" placeholder="10">
+    </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-3">
+        From<span class="text-danger">*</span>
+        </div>
+        <div class="form-group col-md-7">
+  <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Current location
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+            Other. Please specify:
+          </label>
+            <input class="form-control" type="text" placeholder="Enter a location" id="location" disabled>
+            <div id="error2" class="errorMessage">
+            Please enter a location.
+            </div>
+        </div>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="subform" disabled><i class="fa fa-search fa-fw"></i>Search</button>
+        <button type="button" class="btn btn-light" id="clearAll" style="margin-left: 10px;">Clear</button>
+</form>
+      </div>
+      <div class="container" id="choice"><button class="btn btn-primary" id="resultDetails">Result</button><button class="btn btn-light" id="favorites"><span class="text-primary">Favorites</span></button>
+          <div id="spaceForBar">
+          </div>
+      </div>
+      
+      <div class="container" id="firstPart">
+            <button class="btn" id="details" disabled>Details<i class='fas fa-angle-right'></i></button>
+            <div id="showPage"></div>
+      <div id="showButton" class="container"><button class="btn" id="previous">Previous</button><button class="btn btn-light" id="next">Next</button></div>
+      <div id="html2"></div>
+      <div id="html3"></div>
+      </div>
+      <div id="secondPart" class="container">
+          <div id="spaceForthePlaceName"></div>
+          <div id="topButton"><button class="btn btn-light" id="returnList"><i class="fas fa-angle-left" id="leftArrow"></i>List</button><button class="btn btn-light" id="star"><i class='far fa-star'></i></button><button class="btn btn-primary" id="twitter"><i class="fab fa-twitter" id="innerTwitter"></i></button>
+          <div class="clearFloat"></div>
+          </div>
+          <div id="middleList">
+              <button class="btn btn-light" id="reviewsButton">Reviews</button>
+              <button class="btn btn-light" id="mapButton">Map</button>
+              <button class="btn btn-light" id="photosButton">Photos</button>
+              <button class="btn btn-light" id="infoButton">Info</button>
+              <div class="clearFloat"></div>
+          </div>
+          <div id="bottomContent">
+              <div id="reviewsContent">
+                  <div class="form-row" style="margin-top: 20px;">
+                      <div class="form-group col-md-3">
+                    <select id="reviewMedia" class="form-control" style="background-color: grey;color: white">
+                            <option selected value="Google">Google Reviews</option>
+                            <option value="Yelp">Yelp Reviews</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-3">
+                      <select id="reviewOrder" class="form-control"style="background-color: grey;color: white">
+                          <option selected value="Default">Default Order</option>
+                          <option value="Highest">Highest Rating</option>
+                          <option value="Lowest">Lowest Rating</option>
+                          <option value="MRecent">Most Recent</option>
+                          <option value="LRecent">Least Recent</option>
+                        </select>
+                      </div>
+                  </div>
+                  <div id="reviewsText">
+              </div>
+              </div>
+              <div id="mapContent">
+                <div class="form-row" style="margin-top: 20px;">
+                  <div class="form-group col-md-4">
+                    <label class="form-check-label" for="fromOrigin">
+                        From
+                    </label>
+                    <input type="text" class="form-control" id="fromOrigin" value="Your location">
+                    
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label class="form-check-label">
+                        To
+                    </label>
+                    <input type="text" class="form-control" id="toDestination" value="" disabled>
+                    
+                    </div>
+                    <div class="form-group col-md-2">
+                    <label class="form-check-label">
+                        Travel Mode
+                    </label>
+                        <select id="travelMode" class="form-control">
+                            <option selected value="DRIVING">Driving</option>
+                            <option value="BICYCLING">Bicycling</option>
+                            <option value="TRANSIT">Transit</option>
+                            <option value="WALKING">Walking</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-1" style="margin-left: 50px;margin-top: 23px;">
+                        <div></div>
+                        <button class="btn btn-primary" id="getDirection">Get Directions</button>
+                    </div>
+                  </div>
+                  <div id="pegman"></div>
+                  <div id="spaceForMap"></div>
+                  <div id="spaceForPeg"></div>
+                  <div id="spaceForInfo">
+                  <div id="spaceForTable"></div>
+                  <div id="spaceForOrigin" style="height: 40px;">
+                      <div id="iconA" style="font-size: 25px;float: left;"><i class="fas fa-map-marker" style="color: lawngreen;"></i></div><span style="clear: both"></span>
+                      <span id="letterA" style="position: relative; left: -15px;top: -2px;">A</span>
+                      <span id="spaceForOriginText" style="height: 40px; line-height: 40px" >origin</span>
+                      </div>
+                      <div id="spaceForMid"></div>
+                  <div id="spaceForDes" style="height: 40px;margin-top: 60px;">
+                      <div id="iconB" style="font-size: 25px; float: left;"><i class="fas fa-map-marker" style="color: red;"></i></div><span style="clear: both"></span>
+                      <span id="letterB" style="position: relative; left: -15px;top: -2px;">B</span>
+                      <span id="spaceForDesText" style="height: 40px;line-height: 40px;" >Destination</span>
+                      </div>
+                      <div id="someText">Map data &copy; 2018 Google</div>
+                  </div>
+              </div>
+              <div id="photosContent"></div>
+              <div id="infoContent"></div>
+          </div>
+      </div>
+      <div id="thirdPartWhole" class="container">
+      <button class="btn" id="details1" disabled>Details<i class='fas fa-angle-right'></i></button>
+      <div id="thirdPart" class="container">
+      
+      </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var DetailNow="";
+        var DetailLoved=[];
+        var count=1;
+        var loclatitude="";
+        var loclontitude="";
+        var objlatitude="";
+        var objlontitude="";
+        var html1="";
+        var html2="";
+        var html3="";
+        var locAddressName="";
+        var lovedId="";
+        var myDetail2 = document.querySelector('#topButton');
+        var myDetail1 = document.querySelector('#thirdPart');
+        var myDetail=document.querySelector('#showPage');
+        var myNode=document.querySelector('#photosContent');
+        document.getElementById("returnList").onclick=function(){
+            document.getElementById("firstPart").style.display="block";
+            document.getElementById("secondPart").style.display="none";
+        }
+        document.getElementById("clearAll").addEventListener("click",function(){
+           document.getElementById("firstPart").style.display="none";
+           document.getElementById("secondPart").style.display="none";
+           document.getElementById("inputKeyword").value="";
+           document.getElementById("inputState").value="Default";
+           document.getElementById("inputAddress").value="";
+            document.getElementById("gridRadios1").checked=true;
+            document.getElementById("location").value="";
+            document.getElementById("location").disabled=true;
+            document.getElementById("subform").disabled=true;
+           
+        });
+        function showBar(){
+            var mybar=document.createElement('div');
+            if(document.getElementById("animateBar")==null){
+            mybar.innerHTML="<div class='progress'id='animateBar'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100' style='width: 50%'></div></div>";
+            document.getElementById('spaceForBar').appendChild(mybar);
+            }
+        }
+
+        function removeBar(){
+            var Node=document.getElementById('spaceForBar');
+            while (Node.firstChild) {
+                Node.removeChild(Node.firstChild);
+            }       
+        }
+        document.getElementById("subform").onmousedown=function(e){
+           showBar();
+        }
+       
+        function sleep(d){
+            for(var t = Date.now();Date.now() - t <= d;);
+        }
+        function clearMapInfo(){
+            document.getElementById("spaceForTable").innerHTML="";
+            document.getElementById("spaceForMid").innerHTML="";
+            document.getElementById("spaceForOriginText").innerHTML="";
+            document.getElementById("spaceForDesText").innerHTML="";
+        }
+       
+        function openOrNot(day,hour,minute,list){
+            var isOpen;
+            var open="";
+            var close="";
+            var res;
+            var value;
+            var minutes=list[day]["open"]["minutes"]<10?("0"+list[day]["open"]["minutes"]):list[day]["open"]["minutes"];
+            if(list[day]["open"]["hours"]>12){
+                open=(list[day]["open"]["hours"]-12)+":"+minutes+" PM";
+            }else{
+                open=(list[day]["open"]["hours"])+":"+minutes+" AM";
+            }
+            
+            if(list[day]["close"]["hours"]>12){
+                close=(list[day]["close"]["hours"]-12)+":"+minutes+" PM";
+            }else{
+                close=(list[day]["close"]["hours"])+":"+minutes+" AM";
+            }
+            value=open+"-"+close;
+            console.log(value);
+            if(list[day]["open"]["hours"]<list[day]["close"]["hours"]){
+            if(list[day]["open"]["hours"]>hour||list[day]["close"]["hours"]<hour){
+                isOpen=false;
+            }else if(hour>list[day]["open"]["hours"]&&hour<list[day]["close"]["hours"]){
+                isOpen=true;
+            }else{
+                if(hour==list[day]["open"]["hours"]&&minute>=list[day]["open"]["minutes"]){
+                    isOpen=true;
+                }else if(hour==list[day]["close"]["hours"]&&minute<=list[day]["close"]["hours"]){
+                    isOpen=true;
+                }else{
+                    isOpen=false;
+                }
+            }
+            }else{
+               if(list[day]["open"]["hours"]<hour||list[day]["close"]["hours"]>hour){
+                   isOpen=true;
+               } else if(list[day]["open"]["hours"]>hour&&list[day]["close"]["hours"]<hour){
+                   isOpen=false;
+               }else{
+                   if(hour==list[day]["open"]["hours"]&&minute<=list[day]["open"]["minutes"]){
+                    isOpen=true;
+                }else if(hour==list[day]["close"]["hours"]&&minute>=list[day]["close"]["hours"]){
+                    isOpen=true;
+                }else{
+                    isOpen=false;
+                }
+                   
+               }
+            }
+            if(isOpen){
+                res={"Open now:":value};
+            }else{
+                res={"Close":""}
+            }
+            return res;
+        }
+        function initMap(placeId) {
+            document.getElementById("spaceForPeg").style.display='none';
+            var directionsService = new google.maps.DirectionsService;
+            var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('spaceForMap'), {
+          center: {lat: loclatitude, lng: loclontitude},
+          zoom: 12
+        });
+           directionsDisplay.setMap(map); 
+        var marker = new google.maps.Marker({
+            position: {lat: loclatitude, lng: loclontitude},
+            map: map
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.getDetails({
+          placeId: placeId
+        }, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+                var reivews=place.reviews;
+                var infoKey=[];
+                var infoValue = [];
+                var location = place.geometry.location;
+                var cloneReviews=clone(reivews);
+                var city;
+                var state;
+                var country;
+                var yelp_reviews;
+                var yel_reviews;
+              document.getElementById("spaceForthePlaceName").innerHTML=place.name;
+              for(i=0;i<place.address_components.length;i++){
+                  if(place.address_components[i].types[0]=="administrative_area_level_2"){
+                      city=place.address_components[i].short_name;
+                  }else if(place.address_components[i].types[0]=="administrative_area_level_1"){
+                      state=place.address_components[i].short_name;
+                  }else if(place.address_components[i].types[0]=="country"){
+                      country=place.address_components[i].short_name;
+                  }
+              }
+             function clone(o) {  
+                        if (!o) {  
+                            return o;  
+                                } else {  
+                                    var c;  
+                    if (Object.prototype.toString.apply(o) === '[object Array]') {  
+                        c = [];  
+                            for (var i = 0; i < o.length; i++) {  
+                                    c.push(clone(o[i]));  
+                            }  
+                        } else if (Object.prototype.toString.call(o) === '[object Object]') {  
+                        c = {};  
+                        for (var p in o) {  
+                        c[p] = clone(o[p]);  
+                        }  
+                        } else {  
+                            return o;  
+                        }  
+                            return c;  
+                }  
+}   
+             var yelpURL = "http://hw8map-env.us-west-1.elasticbeanstalk.com?yelp=true&name="+encodeURIComponent(place.name)+"&address1="+encodeURIComponent(place.formatted_address)+"&city="+encodeURIComponent(city)+"&state="+encodeURIComponent(state)+"&country="+encodeURIComponent(country)+"&phone="+encodeURIComponent(place.formatted_phone_number);
+              console.log(yelpURL);
+             var yelpReview=loadResponse(yelpURL); 
+              yelpReview=yelpReview.substring(0,yelpReview.length-1);
+             
+             var yelpJSON = JSON.parse(yelpReview);
+              if(yelpJSON.businesses!=null&&yelpJSON.businesses.length!=0){
+                  var busId=yelpJSON.businesses[0].id;
+                  var busUrl="http://hw8map-env.us-west-1.elasticbeanstalk.com?busId="+busId;
+                  var yelReview = loadResponse(busUrl);
+                  yelReview=yelReview.substring(0,yelReview.length-1);
+                  var yelJSON = JSON.parse(yelReview);
+                  yelp_reviews=yelJSON;
+                  yel_reviews=yelp_reviews.reviews;
+              }
+              document.getElementById("reviewsText").innerHTML=generateReviewsHTML(reivews);
+               var cloneYelp=clone(yel_reviews);
+               document.getElementById("reviewMedia").addEventListener('change',function(){
+                    var media=document.getElementById("reviewMedia").value;
+                    if(media=="Yelp"){
+                       console.log(yel_reviews); document.getElementById("reviewsText").innerHTML=generateYelpHTML(yel_reviews);
+                        console.log(document.getElementById("reviewsText").innerHTML);
+                    }else{
+                        document.getElementById("reviewsText").innerHTML=generateReviewsHTML(reivews);
+                    }
+                });
+              document.getElementById("reviewOrder").addEventListener('change',function(){
+                     if(document.getElementById("reviewMedia").value=="Google"){
+                     var wayToOrder = document.getElementById("reviewOrder").value;
+                     if(wayToOrder=='Default'){
+        document.getElementById("reviewsText").innerHTML=generateReviewsHTML(cloneReviews); 
+                     }else if(wayToOrder== 'Highest'){
+                        var compare = function(x,y){
+                            return y.rating-x.rating;
+                        }
+                       yel_reviews.sort(compare); document.getElementById("reviewsText").innerHTML=generateReviewsHTML(reivews.sort(compare)); 
+                        
+                        
+                         
+                     }else if(wayToOrder== 'Lowest'){
+                         var compare = function(x,y){
+                            return x.rating-y.rating;
+                        }
+                       yel_reviews.sort(compare); document.getElementById("reviewsText").innerHTML=generateReviewsHTML(reivews.sort(compare)); 
+                         
+                     }else if(wayToOrder == 'MRecent'){
+                          var compare = function(x,y){
+                            return y.time-x.time;
+                        }
+                          var compare1 = function(x,y){
+                            return new Date(y.time_created).getTime()-new Date(x.time_created).getTime();
+                        }
+                          yel_reviews.sort(compare1);
+                        document.getElementById("reviewsText").innerHTML=generateReviewsHTML(reivews.sort(compare)); 
+                         
+                         
+                     }else if(wayToOrder == 'LRecent'){
+                         var compare = function(x,y){
+                            return x.time-y.time;
+                        }
+                         var compare1 = function(x,y){
+                            return new Date(x.time_created).getTime()-new Date(y.time_created).getTime();
+                        }
+                         yel_reviews.sort(compare1);
+                        document.getElementById("reviewsText").innerHTML=generateReviewsHTML(reivews.sort(compare)); 
+                         
+                     }
+                     }else{
+                         console.log(yel_reviews);
+                          var wayToOrder = document.getElementById("reviewOrder").value;
+                     if(wayToOrder=='Default'){
+        document.getElementById("reviewsText").innerHTML=generateYelpHTML(cloneYelp); 
+                     }else if(wayToOrder== 'Highest'){
+                        var compare = function(x,y){
+                            return y.rating-x.rating;
+                        }
+                        
+                       yel_reviews.sort(compare);
+                       reivews.sort(compare);     
+                         document.getElementById("reviewsText").innerHTML=generateYelpHTML(yel_reviews); 
+                        
+                         
+                     }else if(wayToOrder== 'Lowest'){
+                         var compare = function(x,y){
+                            return x.rating-y.rating;
+                        }
+                       reivews.sort(compare);
+                       yel_reviews.sort(compare); document.getElementById("reviewsText").innerHTML=generateYelpHTML(yel_reviews); 
+                         
+                     }else if(wayToOrder == 'MRecent'){
+                          var compare = function(x,y){
+                            return new Date(y.time_created).getTime()-new Date(x.time_created).getTime();
+                        }
+                          var compare1 = function(x,y){
+                            return y.time-x.time;
+                        }
+                          reivews.sort(compare1);
+                       yel_reviews.sort(compare); document.getElementById("reviewsText").innerHTML=generateYelpHTML(yel_reviews); 
+                         
+                         
+                     }else if(wayToOrder == 'LRecent'){
+                         var compare = function(x,y){
+                            return new Date(x.time_created).getTime()-new Date(y.time_created).getTime();
+                        }
+                         var compare1 = function(x,y){
+                            return x.time-y.time;
+                        }
+                         reivews.sort(compare1);
+                         
+                       yel_reviews.sort(compare); document.getElementById("reviewsText").innerHTML=generateYelpHTML(yel_reviews); 
+                         
+                     }
+                     }
+                     
+                 });
+            document.getElementById('pegman').addEventListener('click',function(){
+            if(document.getElementById('spaceForPeg').style.display!='block'){
+               
+                document.getElementById('spaceForMap').style.display='none';
+                document.getElementById('spaceForPeg').style.display='block';
+               var panorama = new google.maps.StreetViewPanorama(
+                document.getElementById('spaceForPeg'),{
+                    position:location,
+                    pov: {
+                        heading: 34,
+                        pitch: 10
+                    }
+                }
+              ); 
+                map.setStreetView(panorama);
+        document.getElementById('pegman').style.backgroundImage="url('http://cs-server.usc.edu:45678/hw/hw8/images/Map.png')";
+            }else{
+
+                  document.getElementById('spaceForMap').style.display='block';
+                document.getElementById('spaceForPeg').style.display='none';
+                document.getElementById('pegman').style.backgroundImage="url('http://cs-server.usc.edu:45678/hw/hw8/images/Pegman.png')";
+            }
+        });
+              
+                if(place.formatted_address!=null){
+                    infoValue.push(place.formatted_address);
+                    infoKey.push("Address");
+                }
+        if(place.international_phone_number!=null){
+            infoValue.push(place.international_phone_number);
+            infoKey.push("Phone Number");
+        }
+            if(place.price_level!=null){
+                var prL="";
+                for(i=0;i<place.price_level;i++){
+                    prL+="$";
+                }
+                infoValue.push(prL);
+                infoKey.push("Price Level");
+            }
+            if(place.rating!=null){
+                infoValue.push(place.rating);
+                infoKey.push("Rating");
+            }
+              if(place.url!=null){
+                  infoValue.push("<a href='"+place.url+"' target='_Blank'>"+place.url+"</a>"); 
+                  infoKey.push("Google Page");
+              }
+              if(place.website!=null){
+                  infoValue.push("<a href='"+place.website+"' target='_Blank'>"+place.website+"</a>");
+                  infoKey.push("Website");
+              }
+              var d = new Date();
+              var this_offset = -d.getTimezoneOffset();
+              var that_offset = place.utc_offset;
+              d.setMinutes(d.getMinutes()-this_offset+that_offset);
+              var day = d.getDay();
+               var hour = d.getHours();
+              var minute = d.getMinutes();
+              var openMessage;
+              if(place.opening_hours!=null){               openMessage=openOrNot(day,hour,minute,place.opening_hours["periods"]);
+              }
+              
+              var text_html="<table class='table table-striped'><tbody>";
+              for(i=0;i<infoKey.length;i++){
+                  if(infoKey[i]=="Rating"){
+                      var color=(i%2==1)?"white":"#F2F2F2";
+                    text_html+="<tr><th scope='row'>";
+                    text_html+=infoKey[i]+"</th>";
+                    text_html+="<td>"+infoValue[i]+" <div id='backStar'><div id='starRate'><i class='fas fa-star' style='color:red'></i><i class='fas fa-star' style='color:red'></i><i class='fas fa-star' style='color:red'></i><i class='fas fa-star' style='color:red'></i><i class='fas fa-star' style='color:red'></i></div><div id='strip' style='left:"+((infoValue[i]/5)*90+27)+"px;background-color:"+color+"'></div></div></td></tr>";
+                  }else{
+                    text_html+="<tr><th scope='row'>";
+                    text_html+=infoKey[i]+"</th>";
+                    text_html+="<td>"+infoValue[i]+"</td></tr>";
+                  }
+              }
+              if(place.opening_hours!=null){
+                  text_html+="<tr><th scope='row'>";
+                  text_html+="Hours</th>";
+                  text_html+="<td>"+Object.keys(openMessage)+" "+Object.values(openMessage)+" &nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>Daily open hours</a></td></tr>";
+              }
+              text_html+="</tbody></table>";
+              console.log(text_html);
+              document.getElementById("infoContent").innerHTML=text_html;
+              var html_photos="";
+              var photos=place.photos;
+              console.log(photos[0]);
+              if(photos!=null){
+                   html_photos+="<div style='float:left;width:250px;margin-right:10px;margin-top:30px;border-radius:3px;'>";
+                  for(i=0;i<photos.length;i++){
+                      if(i%4==0){
+                      html_photos+="<div style='width:250px;height:"+((240*photos[i]['height']/photos[i]['width'])+10)+"px;margin-top:10px;border:solid #CDCDCD 1px;border-radius:3px;'><div class='imageContent' id='"+photos[i].getUrl({'maxWidth':2000,'maxHeight':2000})+"'style='background-image:url("+photos[i].getUrl({'maxWidth':2000,'maxHeight':2000})+");background-size:cover;width:240px;margin:5px;height:"+(240*photos[i]['height']/photos[i]['width'])+"px'></div></div>";
+                      }
+                  }
+                  html_photos+="</div>";
+                  html_photos+="<div style='float:left;width:250px;margin-right:10px;margin-top:30px;border-radius:3px;'>";
+                  for(i=0;i<photos.length;i++){
+                      if(i%4==1){
+                      html_photos+="<div style='width:250px;height:"+((240*photos[i]['height']/photos[i]['width'])+10)+"px;margin-top:10px;border:solid #CDCDCD 1px;border-radius:3px;'><div class='imageContent' id='"+photos[i].getUrl({'maxWidth':2000,'maxHeight':2000})+"'style='background-image:url("+photos[i].getUrl({'maxWidth':2000,'maxHeight':2000})+");background-size:cover;width:240px;margin:5px;height:"+(240*photos[i]['height']/photos[i]['width'])+"px'></div></div>";
+                      }
+                  }
+                   html_photos+="</div>";
+                  html_photos+="<div style='float:left;width:250px;margin-right:10px;margin-top:30px;border-radius:3px;'>";
+                  for(i=0;i<photos.length;i++){
+                      if(i%4==2){
+                      html_photos+="<div style='width:250px;height:"+((240*photos[i]['height']/photos[i]['width'])+10)+"px;margin-top:10px;border:solid #CDCDCD 1px;border-radius:3px;'><div class='imageContent' id='"+photos[i].getUrl({'maxWidth':2000,'maxHeight':2000})+"'style='background-image:url("+photos[i].getUrl({'maxWidth':2000,'maxHeight':2000})+");background-size:cover;width:240px;margin:5px;height:"+(240*photos[i]['height']/photos[i]['width'])+"px'></div></div>";
+                      }
+                  }
+                  html_photos+="</div>";
+                  html_photos+="<div style='float:left;width:250px;margin-right:10px;margin-top:30px;border-radius:3px;'>";
+                  for(i=0;i<photos.length;i++){
+                      if(i%4==3){
+                      html_photos+="<div style='width:250px;height:"+((240*photos[i]['height']/photos[i]['width'])+10)+"px;margin-top:10px;border:solid #CDCDCD 1px;border-radius:3px;'><div class='imageContent' id='"+photos[i].getUrl({'maxWidth':2000,'maxHeight':2000})+"'style='background-image:url("+photos[i].getUrl({'maxWidth':2000,'maxHeight':2000})+");background-size:cover;width:240px;margin:5px;height:"+(240*photos[i]['height']/photos[i]['width'])+"px'></div></div>";
+                      }
+                  }
+                  html_photos+="</div>";
+                  document.getElementById("photosContent").innerHTML=html_photos;   
+                  console.log(html_photos);
+              }
+              document.getElementById('toDestination').value=place.formatted_address;
+            
+    document.getElementById('getDirection').addEventListener('click',function(){
+        document.getElementById("spaceForInfo").style.visibility="visible";
+  var encodeStr="wutnEne}pU[|@ER?@CNAh@";
+  var path = google.maps.geometry.encoding.decodePath(encodeStr);
+        console.log(path);
+               var waypts=[];
+                for(i=0;i<path.length;i++){
+                    waypts.push({
+                        location:path[i],
+                        stopover:true
+                    });
+                }
+                var mode=document.getElementById('travelMode').value;
+                var origin;
+                marker.setVisible(false);
+                if(document.getElementById('fromOrigin').value==='Your location'){
+                    origin={lat: loclatitude, lng: loclontitude};
+                }else{
+                    origin = document.getElementById('fromOrigin').value;
+                }
+              directionsService.route({
+               origin: origin,
+              destination: document.getElementById('toDestination').value,
+              travelMode: mode,
+              provideRouteAlternatives: true    
+              }, function(response,status){
+                  if(status === 'OK') {
+                     if(document.getElementById("fromOrigin").value=='Your location'){ document.getElementById("spaceForOriginText").innerHTML=locAddressName;
+                     }else{
+                         document.getElementById("spaceForOriginText").innerHTML = document.getElementById("fromOrigin").value;
+                     }
+                      document.getElementById("spaceForDesText").innerHTML=document.getElementById("toDestination").value;
+                      console.log(response);
+                      document.getElementById("spaceForTable").innerHTML=generateTableHTML(response);
+                     if(mode!="TRANSIT") {
+                         document.getElementById("spaceForMid").innerHTML=generateContentHTML(response);
+                     }else{
+                         document.getElementById("spaceForMid").innerHTML=generateTransitHTML(response);
+                     }
+                      directionsDisplay.setDirections(response);
+                       document.querySelector('#spaceForTable').addEventListener('click',function(e){
+                  if(e.target.className=='listForRoutes'){
+                      console.log(e.target.parentElement);
+                      var wholeList=e.target.parentElement;
+                      for(i=1;i<wholeList.childNodes.length;i++){
+                          console.log(wholeList.childNodes[i]);
+                          wholeList.childNodes[i].style.backgroundColor="white";
+                      }
+                      e.target.style.backgroundColor="#cdcdcd";
+                      console.log(e.target.id);
+                      var encodeStr=e.target.id;
+                var path = google.maps.geometry.encoding.decodePath(encodeStr);
+                      var winspan=parseInt(path.length/3);
+                console.log(path);
+                      var waypts=[];
+                        waypts.push({
+                            location:path[winspan],
+                            stopover:false
+                            });
+                      waypts.push({
+                            location:path[winspan*2],
+                            stopover:false
+                            });
+            
+                      console.log(waypts);
+                      var mode=document.getElementById('travelMode').value;
+                var origin;
+                if(document.getElementById('fromOrigin').value==='Your location'){
+                    origin={lat: loclatitude, lng: loclontitude};
+                }else{
+                    origin = document.getElementById('fromOrigin').value;
+                }
+              directionsService.route({
+               origin: origin,
+              destination: document.getElementById('toDestination').value,
+              travelMode: mode,
+              waypoints: waypts,   
+              }, function(response,status){
+                  if(status === 'OK') {
+                       document.getElementById("spaceForMid").innerHTML=generateContentHTML(response);
+                      directionsDisplay.setDirections(response);
+                  }else{
+                       console.log('Directions request failes due to' + status);
+                  }
+              });
+              
+          }else if(e.target.className=='listForTransit'){
+              var wholeList=e.target.parentElement;
+                      for(i=1;i<wholeList.childNodes.length;i++){
+                          console.log(wholeList.childNodes[i]);
+                          wholeList.childNodes[i].style.backgroundColor="white";
+                      }
+                      e.target.style.backgroundColor="#cdcdcd";
+              var time = response.routes[e.target.id].legs[0].departure_time.value;
+              var date=new Date(time);
+              console.log(date);
+              var mode=document.getElementById('travelMode').value;
+                var origin;
+                if(document.getElementById('fromOrigin').value==='Your location'){
+                    origin={lat: loclatitude, lng: loclontitude};
+                }else{
+                    origin = document.getElementById('fromOrigin').value;
+                }
+              directionsService.route({
+               origin: origin,
+              destination: document.getElementById('toDestination').value,
+              travelMode: mode,
+              transitOptions:{
+                  departureTime: date,
+              },  
+              }, function(response,status){
+                  if(status === 'OK') {
+                    document.getElementById("spaceForMid").innerHTML=generateTransitHTML(response);
+                      directionsDisplay.setDirections(response);
+                  }else{
+                       console.log('Directions request failes due to' + status);
+                  }
+              });
+          }
+        });
+                  } else {
+                      window.alert('Directions request failes due to' + status);
+                  }
+              });
+            });
+             
+          }
+      });
+        }
+        document.getElementById("fromOrigin").addEventListener("input",function(){
+            if(document.getElementById("fromOrigin").value.trim()==""){
+                document.getElementById("getDirection").disabled=true;
+            }else{
+                document.getElementById("getDirection").disabled=false;
+            }
+        });
+        function generateReviewsHTML(reviews){
+            var reviewsHTML="";
+            for( i=0;i<reviews.length;i++){
+                var date = new Date((reviews[i].time)*1000);
+                var time_Text=date.toLocaleString();
+                reviewsHTML+="<div id='review"+i+"' style='margin-top:5px;padding-top:20px;padding-bottom:40px;border:solid #cdcdcd 1px;'>";
+                reviewsHTML+="<div style='float:left;height:130px;'><a href="+reviews[i].author_url+" style='text-decoration: none;' target='_blank'><img src="+reviews[i].profile_photo_url+"width='70px' height='70px'/></a></div>";
+                reviewsHTML+="<div><span style='font-size:22px;Color:blue;'><a href="+reviews[i].author_url+"style='text-decoration: none;' target='_blank'>"+reviews[i].author_name+"</a></span><br/><span style='color:red;'>";
+                for(j=0;j<reviews[i].rating;j++){
+                    reviewsHTML+="<i class='fas fa-star'></i>"
+                }
+                reviewsHTML+="</span>";
+                reviewsHTML+="<span>"+time_Text+"</span><br/>"
+                reviewsHTML+="<span>"+reviews[i].text+"</span></div></div>";
+            }
+            return reviewsHTML;
+        }
+        function generateYelpHTML(reviews){
+            var reviewsHTML="";
+            for( i=0;i<reviews.length;i++){
+                reviewsHTML+="<div style='margin-top:5px;padding-top:20px;padding-bottom:40px;border:solid #cdcdcd 1px;'>";
+                reviewsHTML+="<div style='float:left;height:130px;'><a href="+reviews[i].url+" style='text-decoration: none;' target='_blank'><img src='"+reviews[i].user.image_url+"' width='70px' height='70px'/></a></div>";
+                reviewsHTML+="<div><span style='font-size:22px;Color:blue;'><a href="+reviews[i].url+"style='text-decoration: none;' target='_blank'>"+reviews[i].user.name+"</a></span><br/><span style='color:red;'>";
+                for(j=0;j<reviews[i].rating;j++){
+                    reviewsHTML+="<i class='fas fa-star'></i>"
+                }
+                reviewsHTML+="</span>";
+                reviewsHTML+="<span>"+reviews[i].time_created+"</span><br/>"
+                reviewsHTML+="<span>"+reviews[i].text+"</span></div></div>";
+            }
+            return reviewsHTML;
+        }
+        function generateTransitHTML(response){
+            var transit_HTML="";
+            transit_HTML+="<div style='width:500px'><div style='height:30px;line-height:30px;'>"+response.routes[0].legs[0].distance.text+". About"+response.routes[0].legs[0].duration.text+"</div>";
+            for(i=0;i<response.routes[0].legs[0].steps.length;i++){
+                if(response.routes[0].legs[0].steps[i].travel_mode=="WALKING"){
+                    transit_HTML+="<div style='border-top:solid #cdcdcd 1px;'><div><img src='https://maps.gstatic.com/mapfiles/transit/iw2/6/walk.png' width='20px'>"+response.routes[0].legs[0].steps[i].instructions+"</div>"
+                    transit_HTML+="<div>About "+response.routes[0].legs[0].steps[i].duration.text+"</div></div>";
+                }else{
+                    transit_HTML+="<div style='border-top:solid #cdcdcd 1px;'><div><img src='https://maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png' width='20px'>"+response.routes[0].legs[0].steps[i].instructions+"</div>"
+                    transit_HTML+="<div>About "+response.routes[0].legs[0].steps[i].duration.text+"</div></div>";
+                }
+           
+            }
+            transit_HTML+="</div>";
+            return transit_HTML;
+        }
+        function generateContentHTML(response){
+            var content_html="";
+            content_html+="<div>"+response.routes[0].legs[0].distance.text+". About"+response.routes[0].legs[0].duration.text+"</div>";
+            for(i=0;i<response.routes[0].legs[0].steps.length;i++){
+                
+                if(response.routes[0].legs[0].steps[i].maneuver==""){
+                    content_html+="<div style='border-top:solid #cdcdcd 1px;height:30px;line-height:30px;width:500px;'>";
+                    content_html+=" &nbsp;&nbsp;&nbsp;&nbsp;"+i+". "+response.routes[0].legs[0].steps[i].instructions;
+                    content_html+="<span style='float:right'>"+response.routes[0].legs[0].steps[i].distance.text+"</span></div>";
+                }else if(response.routes[0].legs[0].steps[i].maneuver=="turn-right"){
+                    content_html+="<div style='border-top:solid #cdcdcd 1px;height:30px;line-height:30px;width:500px;'>&rarr;";
+                    content_html+=" "+i+". "+response.routes[0].legs[0].steps[i].instructions;
+                    content_html+="<span style='float:right'>"+response.routes[0].legs[0].steps[i].distance.text+"</span></div>";
+                    
+                }else if(response.routes[0].legs[0].steps[i].maneuver=="turn-left"){
+                     content_html+="<div style='border-top:solid #cdcdcd 1px;height:30px;line-height:30px;width:500px;'>&larr;";
+                    content_html+=" "+i+". "+response.routes[0].legs[0].steps[i].instructions;
+                    content_html+="<span style='float:right'>"+response.routes[0].legs[0].steps[i].distance.text+"</span></div>";
+                }
+        
+            }
+                content_html+="</div>";
+                return content_html;
+        }
+        function generateTableHTML(response){
+            var tableHtml="";
+            tableHtml+="<div style='border:solid #CDCDCD 1px'><div>Suggested routes:</div>";
+            if(response.request.travelMode=="DRIVING"||response.request.travelMode=="BICYCLING"||response.request.travelMode=="WALKING"){
+                for(i=0;i<response.routes.length;i++){
+                    var backgroundColor=(i==0)?"#cdcdcd":"white";
+                    var polyline=response.routes[i].overview_polyline;
+                    tableHtml+="<div class='listForRoutes' id="+polyline+" style='background-color:"+backgroundColor+"'>"+response.routes[i].summary+" "+response.routes[i].legs[0].distance.text+" .About"+response.routes[i].legs[0].duration.text+"</div>";
+                }
+                tableHtml+="</div>";
+            }else{
+                for(i=0;i<response.routes.length;i++){
+                    var backgroundColor=(i==0)?"#cdcdcd":"white";
+                    tableHtml+="<div class='listForTransit' id="+i+" style='margin:10px;background-color:"+backgroundColor+"'>";
+                    for(j=0;j<response.routes[i].legs[0].steps.length;j++){
+                       if(j==response.routes[i].legs[0].steps.length-1){
+                           if(response.routes[i].legs[0].steps[j].travel_mode=="WALKING"){
+                            tableHtml+="<img src='https://maps.gstatic.com/mapfiles/transit/iw2/6/walk.png' height='20px' width='20px'>";
+                        }else{
+                            tableHtml+="<img src='https://maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png' height='20px' width='20px'>"+response.routes[i].legs[0].steps[j].transit.line.short_name;
+                        }
+                           break;
+                       } if(response.routes[i].legs[0].steps[j].travel_mode=="WALKING"){
+                            tableHtml+="<img src='https://maps.gstatic.com/mapfiles/transit/iw2/6/walk.png' height='20px' width='20px'><i class='fas fa-long-arrow-alt-right'></i>";
+                        }else{
+                            
+                            tableHtml+="<img src='https://maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png' height='20px' width='20px'>"+response.routes[i].legs[0].steps[j].transit.line.short_name+"<i class='fas fa-long-arrow-alt-right'></i>";
+                        }
+                    }
+                    tableHtml+="<span style='float:right;'>"+response.routes[i].legs[0].duration.text+"</span>";
+                    tableHtml+="<div style='margin-top:5px;'>"+response.routes[i].legs[0].departure_time.text+"-"+response.routes[i].legs[0].arrival_time.text+"</div></div>";
+                }
+            }
+            return tableHtml;
+        }
+        myNode.addEventListener("click",function(e){
+            if(e.target.className=='imageContent'){
+                var myOverlay = document.createElement('div');
+                myOverlay.id= 'overlay';
+                document.body.appendChild(myOverlay);
+                myOverlay.style.position = 'absolute';
+                myOverlay.style.top = 0;
+                myOverlay.style.backgroundColor = 'black';
+                myOverlay.style.cursor = 'pointer';
+                myOverlay.style.width = window.innerWidth+ 'px';
+                myOverlay.style.height = window.innerHeight + 'px';
+                myOverlay.style.top = window.pageYOffset+'px';
+                myOverlay.style.left = window.pageXOffset + 'px';
+                var imageSrc = e.target.src;
+                var largeImage = document.createElement('img');
+                largeImage.id = 'largeImage';
+                largeImage.src = e.target.id;
+                largeImage.style.display = 'block';
+                largeImage.style.position = 'absolute';
+                largeImage.addEventListener('load',function(){
+                    var ratio=this.height/this.width;
+                    var winRatio = window.innerHeight/window.innerWidth;
+                    if(winRatio>ratio){
+                        this.width=(window.innerWidth)*0.95;
+                        this.height=window.innerWidth*ratio*0.95;
+                    }else{
+                        this.height=(window.innerHeight)*0.95;
+                        this.width=(window.innerHeight/ratio)*0.95;
+                    }
+                    
+                    centerImage(this);
+                    myOverlay.appendChild(largeImage);
+                });
+                
+                largeImage.addEventListener('click',function(){
+                    if(myOverlay) {
+                        window.removeEventListener('resize',window,false);
+                        window.removeEventListener('scroll',window,false);
+                        myOverlay.parentNode.removeChild(myOverlay);
+                    }
+                },false)
+                
+                window.addEventListener('scroll',function(){
+                    if(myOverlay) {
+                        myOverlay.style.top = window.pageYOffset + 'px';
+                        myOverlay.style.left = window.pageXOffset + 'px';
+                    }
+                },false);
+                
+                window.addEventListener('resize',function(){
+                    if(myOverlay){
+                        myOverlay.style.width = window.innerWidth + 'px';
+                        myOverlay.style.height = window.innerHeight + 'px';
+                        myOverlay.style.top = window.pageYOffset + 'px';
+                        myOverlay.style.left = window.pageXOffset + 'px';
+                        centerImage(largeImage);
+                    }
+                })
+            }
+            
+        },false);
+        
+        function centerImage (theImage) {
+                var myDifX = (window.innerWidth - theImage.width)/2;
+                var myDifY = (window.innerHeight - theImage.height)/2;
+                
+                theImage.style.top = myDifY + 'px';
+                theImage.style.left = myDifX + 'px';
+                
+                return theImage;
+        }
+        document.getElementById("infoButton").addEventListener('click',function(e){
+            var info=document.getElementById("infoButton");
+            var photos=document.getElementById("photosButton");
+            var map=document.getElementById("mapButton");
+            var reviews=document.getElementById("reviewsButton");
+            changeStyle(info);
+            changeBack(photos);
+            changeBack(map);
+            changeBack(reviews);
+            document.getElementById("infoContent").style.display='block';
+        document.getElementById("photosContent").style.display='none';
+            document.getElementById("mapContent").style.display='none';
+        document.getElementById("reviewsContent").style.display='none';
+        });
+        document.getElementById("photosButton").addEventListener('click',function(e){
+            var info=document.getElementById("infoButton");
+            var photos=document.getElementById("photosButton");
+            var map=document.getElementById("mapButton");
+            var reviews=document.getElementById("reviewsButton");
+            changeStyle(photos);
+            changeBack(info);
+            changeBack(map);
+            changeBack(reviews);
+            document.getElementById("infoContent").style.display='none';
+        document.getElementById("photosContent").style.display='block';
+            document.getElementById("mapContent").style.display='none';
+        document.getElementById("reviewsContent").style.display='none';
+        });
+        document.getElementById("mapButton").addEventListener('click',function(e){
+            var info=document.getElementById("infoButton");
+            var photos=document.getElementById("photosButton");
+            var map=document.getElementById("mapButton");
+            var reviews=document.getElementById("reviewsButton");
+            changeBack(info);
+            changeBack(photos);
+            changeStyle(map);
+            changeBack(reviews);
+            document.getElementById("infoContent").style.display='none';
+        document.getElementById("photosContent").style.display='none';
+            document.getElementById("mapContent").style.display='block';
+        document.getElementById("reviewsContent").style.display='none';
+        });
+        document.getElementById("reviewsButton").addEventListener('click',function(e){
+            var info=document.getElementById("infoButton");
+            var photos=document.getElementById("photosButton");
+            var map=document.getElementById("mapButton");
+            var reviews=document.getElementById("reviewsButton");
+            changeBack(info);
+            changeBack(photos);
+            changeBack(map);
+            changeStyle(reviews);
+            document.getElementById("infoContent").style.display='none';
+        document.getElementById("photosContent").style.display='none';
+            document.getElementById("mapContent").style.display='none';
+        document.getElementById("reviewsContent").style.display='block';
+        });
+        function changeStyle(e){
+            e.style.borderBottomColor="white";
+            e.style.borderLeft="solid #CDCDCD 1px";
+            e.style.borderRight="solid #CDCDCD 1px";
+            e.style.borderTop="solid #CDCDCD 1px";
+            e.style.color="black";
+        }
+        function changeBack(e){
+            e.style.borderBottomColor="#CDCDCD";
+            e.style.borderLeft="solid white 1px";
+            e.style.borderRight="solid white 1px";
+            e.style.borderTop="solid white 1px";
+            e.style.color="#277CF6";
+        }
+        myDetail.addEventListener('click',function(e){
+           var placeId=""; 
+           var name="";
+           var innerIcon="";
+           console.log(e.target.className);
+            if(e.target.className=="innerIcon1"||e.target.parentNode.className=="innerIcon1"){
+                if(e.target.className=="innerIcon1"){
+                    console.log(e.target);
+                    placeId=e.target.id;
+                    innerIcon=e.target;
+                }else{
+                    console.log(e.target.parentNode);
+                    placeId=e.target.parentNode.id;
+                    innerIcon=e.target.parentElement;
+                }
+                lovedId=placeId;
+                modifiedGeneral(document.getElementById("showPage"));
+                modifiedGeneral(document.getElementById("thirdPart"));
+                modifiedForTwo(document.getElementById("topButton"));
+               var oneRow=innerIcon.parentElement.parentElement;
+               oneRow.style.backgroundColor="#F5DB98";
+               oneRow.onmouseover=function(){
+                   oneRow.style.backgroundColor="#cdcdcd";
+               }
+               oneRow.onmouseout=function(){
+                   oneRow.style.backgroundColor="#F5DB98";
+               }
+               DetailNow=oneRow;
+              clearMapInfo();
+                console.log(placeId);
+               initMap(placeId);
+                document.getElementById("thirdPartWhole").style.display="none";
+               document.getElementById("firstPart").style.display="none";
+               document.getElementById("secondPart").style.display="block";
+               document.getElementById("details").disabled=false;
+               document.getElementById("details1").disabled=false;
+            }else if(e.target.className=="far fa-star"){
+                e.target.className="fas fa-star";
+                e.target.style.color="yellow";
+                e.target.id=DetailLoved.length;
+                var oneRow=e.target.parentElement.parentElement.parentElement;
+                 console.log(oneRow);
+                var inHtml=oneRow.innerHTML;
+                inHtml=inHtml.toString();
+                inHtml=inHtml.replace(/fas fa-star/g,"fas fa-trash-alt");
+                inHtml=inHtml.replace(/yellow/g,"black");
+                DetailLoved.push(inHtml);
+                document.getElementById("thirdPart").innerHTML=generatedLovedHTML(DetailLoved);
+                modifiedGeneral(document.getElementById("thirdPart"));
+                modifiedForThree(document.getElementById("thirdPart"));
+            }else if(e.target.className=="fas fa-star"){
+                e.target.className="far fa-star";
+                e.target.style.color="black";
+                DetailLoved.splice(e.target.id,1,"ts");
+                e.target.removeAttribute("id");
+ document.getElementById("thirdPart").innerHTML=generatedLovedHTML(DetailLoved);
+                modifiedGeneral(document.getElementById("thirdPart"));
+                modifiedForThree(document.getElementById("thirdPart"));
+            }
+        });
+        myDetail1.addEventListener('click',function(e){
+           var placeId=""; 
+           var name="";
+           var innerIcon="";
+           console.log(e.target.className);
+            if(e.target.className=="innerIcon1"||e.target.parentNode.className=="innerIcon1"){
+                if(e.target.className=="innerIcon1"){
+                    console.log(e.target);
+                    placeId=e.target.id;
+                    innerIcon=e.target;
+                }else{
+                    console.log(e.target.parentNode);
+                    placeId=e.target.parentNode.id;
+                    innerIcon=e.target.parentElement;
+                }
+                lovedId=placeId;
+                modifiedGeneral(document.getElementById("showPage"));
+                modifiedGeneral(document.getElementById("thirdPart"));
+                modifiedForTwo(document.getElementById("topButton"));
+               var oneRow=innerIcon.parentElement.parentElement;
+               oneRow.style.backgroundColor="#F5DB98";
+               oneRow.onmouseover=function(){
+                   oneRow.style.backgroundColor="#cdcdcd";
+               }
+               oneRow.onmouseout=function(){
+                   oneRow.style.backgroundColor="#F5DB98";
+               }
+               DetailNow=oneRow;
+              clearMapInfo();
+                console.log(placeId);
+               initMap(placeId);
+               document.getElementById("firstPart").style.display="none";
+               document.getElementById("secondPart").style.display="block";
+                document.getElementById("thirdPartWhole").style.display="none";
+               document.getElementById("details").disabled=false;
+               document.getElementById("details1").disabled=false;
+            }else if(e.target.className=="fas fa-trash-alt"){
+                DetailLoved.splice(e.target.id,1,"ts");
+                e.target.removeAttribute("id");
+ document.getElementById("thirdPart").innerHTML=generatedLovedHTML(DetailLoved);
+                modifiedGeneral(document.getElementById("thirdPart"));
+                modifiedForThree(document.getElementById("thirdPart"));
+                modifiedForOne(document.getElementById("showPage"));
+            }
+        });
+        myDetail2.addEventListener('click',function(e){
+            if(e.target.className=="far fa-star"){
+                e.target.className="fas fa-star";
+                e.target.style.color="yellow";
+                console.log(DetailNow.childNodes);
+                var starNow=DetailNow;
+                starNow.childNodes[4].childNodes[0].childNodes[0].id=DetailLoved.length;
+                starNow.childNodes[4].childNodes[0].childNodes[0].style.color="yellow";
+                starNow.childNodes[4].childNodes[0].childNodes[0].className="fas fa-star";
+                var toPush = starNow.innerHTML;
+                toPush=toPush.toString();
+                toPush=toPush.replace(/fas fa-star/g,"fas fa-trash-alt");
+                toPush=toPush.replace(/yellow/g,"black");
+                console.log(DetailLoved[0]);
+                console.log(toPush);
+                DetailLoved.push(toPush);
+                document.getElementById("thirdPart").innerHTML=generatedLovedHTML(DetailLoved);
+                modifiedGeneral(document.getElementById("thirdPart"));
+               modifiedForThree(document.getElementById("thirdPart"));
+                
+            }else if(e.target.className=="fas fa-star"){
+                e.target.className="far fa-star";
+                e.target.style.color="black";
+                var index=DetailNow.childNodes[4].childNodes[0].childNodes[0];
+               DetailLoved.splice(index.id,1,"ts");
+               index.removeAttribute("id");
+                index.className="far fa-star";
+                index.style.color="black";
+ document.getElementById("thirdPart").innerHTML=generatedLovedHTML(DetailLoved);
+                modifiedGeneral(document.getElementById("thirdPart"));
+                modifiedForThree(document.getElementById("thirdPart"));
+            }
+            
+        });
+        document.getElementById("favorites").addEventListener('click',function(){
+             document.getElementById("firstPart").style.display="none";
+               document.getElementById("secondPart").style.display="none";
+               document.getElementById("thirdPartWhole").style.display="block";
+        });
+         document.getElementById("resultDetails").addEventListener('click',function(){
+             document.getElementById("firstPart").style.display="block";
+               document.getElementById("secondPart").style.display="none";
+               document.getElementById("thirdPartWhole").style.display="none";
+        });
+        document.getElementById("details").addEventListener('click',function(){
+               document.getElementById("firstPart").style.display="none";
+               document.getElementById("secondPart").style.display="block";
+               document.getElementById("thirdPartWhole").style.display="none";
+                modifiedForTwo(document.getElementById("topButton"));
+        });
+         document.getElementById("details1").addEventListener('click',function(){
+               document.getElementById("firstPart").style.display="none";
+               document.getElementById("secondPart").style.display="block";
+             document.getElementById("thirdPartWhole").style.display="none";
+                modifiedForTwo(document.getElementById("topButton"));
+        });
+        $("form").submit(function(e){
+            e.preventDefault();
+            document.getElementById("details").disabled=true;
+            document.getElementById("firstPart").style.display="block";
+            document.getElementById("secondPart").style.display="none";
+             html1="";
+             html2="";
+             html3="";
+             count=1;
+            var myUrl="";
+            var serveUrl="";
+            document.getElementById("previous").style.display='none';
+            if(document.getElementById("gridRadios1").checked==true){
+                if(loclatitude!=""&&loclontitude!=""){
+                    objlatitude=loclatitude;
+                    objlontitude=loclontitude;
+                }else{
+                    objlatitude="34.0266";
+                    objlontitude="-118.2831";
+                }
+            }else{
+                myUrl="https://maps.googleapis.com/maps/api/geocode/json?address="+encodeURIComponent($("#location").val())+"&key=AIzaSyD0l5EmYEXZaT4AdEhnSXX9niPy9t65asg";
+                var data=loadJSON(myUrl);
+                if(data["status"]=="OK"){
+                    objlatitude=data["results"][0]["geometry"]["location"]["lat"];
+                    objlontitude=data["results"][0]["geometry"]["location"]["lng"];
+                }
+            }
+            
+            var radius;
+            if(document.getElementById('inputAddress').value==""){
+                radius=16093;
+            }else{
+                radius=document.getElementById('inputAddress').value*1609.3;
+            }
+            serveUrl="http://hw8map-env.us-west-1.elasticbeanstalk.com?keyword="+document.getElementById("inputKeyword").value+"&category="+document.getElementById("inputState").value+"&radius="+radius+"&latitude="+objlatitude+"&longtitude="+objlontitude;
+
+            var jsonDetail=loadJSON(serveUrl);
+           html1=generateHTML(jsonDetail); 
+            document.getElementById("showPage").innerHTML=html1;
+            document.getElementById("details").style.display="block";
+            document.getElementById("details").disabled=true;
+            if(jsonDetail.next_page_token!=null){
+                document.getElementById("next").style.display='inline';
+             var PageUrl="http://hw8map-env.us-west-1.elasticbeanstalk.com?nextPage="+jsonDetail.next_page_token;
+                document.getElementById("html2").innerHTML=PageUrl;
+                removeBar();
+            }
+            
+        })
+        document.getElementById("next").onclick=function(e){
+            count=count+1;
+            var json2;
+            var json3;
+            document.getElementById("previous").style.display='inline'
+            if(count==2){
+                html1=document.getElementById("showPage").innerHTML;
+                if(html2!=""){
+                    document.getElementById("showPage").innerHTML=html2;
+                    modifiedForOne(document.getElementById("showPage"));
+                }else{
+                console.log(document.getElementById("html2").innerHTML);
+         json2=loadJSON(document.getElementById("html2").innerHTML);
+                console.log(json2);
+                html2=generateHTML(json2);
+            document.getElementById("showPage").innerHTML=html2;
+                    modifiedForOne(document.getElementById("showPage"));
+                if(json2.next_page_token!=null){
+                    var PageUrl="http://hw8map-env.us-west-1.elasticbeanstalk.com?nextPage="+json2.next_page_token;
+                    document.getElementById("html3").innerHTML=PageUrl;
+                }else{
+                    document.getElementById("next").style.display='none';
+                }
+                }
+            }
+            if(count==3){
+                html2=document.getElementById("showPage").innerHTML;
+                document.getElementById("next").style.display='none';
+                if(html3!=""){
+                    document.getElementById("showPage").innerHTML=html3;
+                    modifiedForOne(document.getElementById("showPage"));
+                }else{
+                json3=loadJSON(document.getElementById("html3").innerHTML);
+                html3=generateHTML(json3);
+                document.getElementById("showPage").innerHTML=html3;
+                    modifiedForOne(document.getElementById("showPage"));
+                }
+            }
+            modifiedGeneral(document.getElementById("showPage"));
+            
+        }
+        document.getElementById("previous").onclick=function(e){
+            count=count-1;
+            document.getElementById("next").style.display='inline';
+            if(count==2){
+                html3=document.getElementById("showPage").innerHTML;
+                document.getElementById("showPage").innerHTML=html2;
+                modifiedForOne(document.getElementById("showPage"));
+            }
+            if(count==1){
+                html2=document.getElementById("showPage").innerHTML;
+                document.getElementById("showPage").innerHTML=html1;
+                modifiedForOne(document.getElementById("showPage"));
+                document.getElementById("previous").style.display='none';
+            
+            }
+             modifiedGeneral(document.getElementById("showPage"));
+        }
+        function modifiedGeneral(element){
+            var res=false;
+            if(element.innerHTML.trim()!=""){
+            var nodeList = element.childNodes[0].childNodes[1].childNodes;
+            for(i=0;i<nodeList.length;i++){
+                if(nodeList[i].childNodes[5].childNodes[0].id==lovedId){
+                    res=true;
+                    nodeList[i].style.backgroundColor="#F5DB98";
+                    nodeList[i].onmouseover=function(){
+                        this.style.backgroundColor="#cdcdcd";
+                    }
+                     nodeList[i].onmouseout=function(){
+                        this.style.backgroundColor="#F5DB98";
+                    }
+                }else{
+                    nodeList[i].style.backgroundColor="white";
+                    nodeList[i].onmouseover=function(){
+                        this.style.backgroundColor="#cdcdcd";
+                    }
+                     nodeList[i].onmouseout=function(){
+                        this.style.backgroundColor="white";
+                    }
+                    
+                }
+            }
+            }
+            return res;
+        }
+        
+        function modifiedForThree(element){
+            if(element.innerHTML.trim()!=""){
+            var nodeList = element.childNodes[0].childNodes[1].childNodes;
+            for(i=0;i<nodeList.length;i++){
+                nodeList[i].childNodes[0].firstChild.innerHTML=(i+1);
+            }
+            }
+        }
+        function modifiedForTwo(element){
+            var node=element.childNodes[1].childNodes[0];
+            var res=modifiedGeneral(document.getElementById("thirdPart"));
+            if(res){
+                node.className="fas fa-star";
+                node.style.color="yellow";
+            }else{
+                node.className="far fa-star";
+                node.style.color="black";
+            }
+        }
+        function modifiedForOne(element){
+            if(element.innerHTML.trim()!=""){
+            var nodeList = element.childNodes[0].childNodes[1].childNodes;
+            for(i=0;i<nodeList.length;i++){
+                var starId = nodeList[i].childNodes[4].childNodes[0].childNodes[0].id;
+                if(starId.trim()!=""){
+                    if(DetailLoved[starId]=='ts'){
+                        nodeList[i].childNodes[4].childNodes[0].childNodes[0].className="far fa-star";
+                        nodeList[i].childNodes[4].childNodes[0].childNodes[0].style.color="black";
+                        nodeList[i].childNodes[4].childNodes[0].childNodes[0].id="";
+                    }
+                }
+            }
+            }
+        }
+        function generatedLovedHTML(DetailLoved){
+            var count=0;
+            var html_text="<table class='table'><thead><tr>";
+            html_text+="<th scope='col'>#</th><th scope='col'>Category</th><th scope='col'>Name</th><th scope='col'>Address</th><th scope='col'>Favorite</th><th scope='col'>Details</th>";
+            html_text+="</tr></thead><tbody>";
+            for(i=0;i<DetailLoved.length;i++){
+                if(DetailLoved[i]=='ts') continue;
+                count++;
+                if(count>20)break;
+                html_text+="<tr class='oneRow'>";
+                html_text+=DetailLoved[i];
+                html_text+="</tr>"
+            }
+            html_text+="</tbody></table>";
+            return html_text;
+        }
+        function generateHTML(jsonObj){
+            var html_text="";
+            html_text+="<table class='table'><thead><tr>";
+            html_text+="<th scope='col'>#</th><th scope='col'>Category</th><th scope='col'>Name</th><th scope='col'>Address</th><th scope='col'>Favorite</th><th scope='col'>Details</th>";
+            html_text+="</tr></thead><tbody>";
+            for(i=0;i<jsonObj.results.length;i++){
+                var result=jsonObj.results[i];
+                html_text+="<tr class='oneRow'><th scope='row'><div class='innerContent'>"+(i+1)+"</div></th>";
+                html_text+="<td><img src="+result['icon']+"></td>";
+                html_text+="<td><div class='innerContent'>"+result['name']+"</div></td>";
+                html_text+="<td><div class='innerContent'>"+result['vicinity']+"</div></td>";
+                html_text+="<td style='text-align:center'><div class='innerIcon' ><i class='far fa-star'></i></div></td>";
+                html_text+="<td style='text-align:center'><div class='innerIcon1' id="+result['place_id']+"><i class='fas fa-angle-right'></i></div></td></tr>";
+            }
+            html_text+="</tbody></table>";
+            return html_text;
+        }
+        function loadJSON(url){
+            var jsonObj;
+            $.ajax({
+                type: 'GET',
+                url:url,
+                dataType:'json',
+                async:false,
+                success:function(data){
+                    jsonObj=data;
+                }
+            });
+            return jsonObj;
+        }
+        function loadResponse(url){
+            var responseObj;
+            $.ajax({
+                type: 'GET',
+                url:url,
+                async:false,
+                success:function(data){
+                    responseObj=data;
+                }
+            });
+            return responseObj;
+        }
+       window.onload=function(){
+           var url='http://ip-api.com/json';
+          var request = loadJSON(url);
+           console.log(request);
+           loclatitude=request['lat'];
+           loclontitude=request['lon'];
+           var url2 = "http://hw8map-env.us-west-1.elasticbeanstalk.com?lat="+loclatitude+"&longt="+loclontitude;
+           locAddressName=loadJSON(url2)['results'][0]['formatted_address'];
+           console.log(locAddressName);
+        
+       }
+       document.getElementById("location").addEventListener("blur",function(){
+           if(document.getElementById("location").value==""){
+               document.getElementById("location").style.borderColor="red";
+               document.getElementById("error2").style.display = "block";
+               
+               document.getElementById("subform").disabled = true;
+           }
+       });
+        document.getElementById("location").addEventListener("input",function(){
+           if(document.getElementById("location").value!=""){ document.getElementById("location").style.borderColor="#CACACA";
+                                                                
+            document.getElementById("error2").style.display="none";
+            if(document.getElementById("inputKeyword").value!=""){
+            document.getElementById("subform").disabled = false;
+            }
+           }else{
+                 document.getElementById("subform").disabled = true;
+           }
+        });
+       $("#gridRadios1").change(function(){
+           document.getElementById("location").style.borderColor="#CACACA";
+           document.getElementById("error2").style.display="none";
+           document.getElementById("location").disabled=true;
+           document.getElementById("location").value="";
+           if(document.getElementById("inputKeyword").value!=""){ 
+               document.getElementById("subform").disabled = false;
+             }else{
+                 document.getElementById("subform").disabled = true;
+             }
+       });
+       $("#gridRadios2").change(function(){
+           document.getElementById("location").disabled=false;
+            document.getElementById("subform").disabled = true;
+       });
+      document.getElementById("inputKeyword").addEventListener('blur',function(e){
+          
+               if(document.getElementById("inputKeyword").value==""){
+            document.getElementById("inputKeyword").style.borderColor="red";
+                document.getElementById("error1").style.display="block";
+                 document.getElementById("subform").disabled = true;
+               }
+      });
+        document.getElementById("inputKeyword").addEventListener("input",function(e){
+           if(document.getElementById("inputKeyword").value!=""){ document.getElementById("inputKeyword").style.borderColor="#CACACA";
+                                                                
+            document.getElementById("error1").style.display="none"; 
+           if(document.getElementById("gridRadios1").checked||document.getElementById("location").value!=""){ 
+               document.getElementById("subform").disabled = false;
+           }
+           }else{
+                 document.getElementById("subform").disabled = true;
+            }
+        });
+      function initAutocomplete() {
+          autocomplete = new google.maps.places.Autocomplete(
+          (document.getElementById('location')),{types: ['geocode']}
+          );
+          autocomplete1 = new google.maps.places.Autocomplete(
+          (document.getElementById('fromOrigin')),{types:['geocode']}
+          );
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0l5EmYEXZaT4AdEhnSXX9niPy9t65asg&libraries=places&callback=initAutocomplete"
+        async defer></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      
+  </body>
+</html>
